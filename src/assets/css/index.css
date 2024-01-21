@@ -1,0 +1,52 @@
+:root {
+  --primary: #06c;
+
+  --grey-0: #fafbfc;
+  --grey-50: #f2f4f8;
+  --grey-100: #eaedf3;
+  --grey-200: #e2e7ef;
+  --grey-300: #dbe0ea;
+  --grey-400: #d3dae6;
+  --grey-500: #cbd3e1;
+  --grey-600: #adb3bf;
+  --grey-700: #8e949e;
+  --grey-800: #70747c;
+  --grey-900: #51545a;
+  --grey-1000: #333538;
+  --grey-1100: #141516;
+
+  --background-color: #fff;
+
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial,
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  --font-mono: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
+  --font-lg: 18px;
+  --font-md: 16px;
+  --font-sm: 14px;
+  --font-sx: 12px;
+  --line-height-loose: 1.75;
+  --line-height-normal: 1.5;
+  --line-height-dense: 1.1;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 16px;
+  --space-4: 24px;
+  --space-5: 32px;
+  --space-6: 64px;
+
+  --icon-size-1: 16px;
+  --icon-size-2: 24px;
+  --icon-size-3: 32px;
+  --icon-size-4: 40px;
+  --icon-size-5: 48px;
+  --icon-size-6: 56px;
+
+  --border-radius: 10px;
+}
+
+body {
+  background-color: var(--background-color);
+  font-family: var(--font-sans);
+  margin: 0px;
+}
