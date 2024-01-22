@@ -3,6 +3,7 @@ import { useQueryCustomerList } from "./hooks/UseQueryCustomerList";
 import CustomerList from "./components/CustomerList";
 import styled from "@emotion/styled";
 import { Button, CircularProgress } from "@mui/material";
+import CreateCustomerForm from "./components/CreateCustomerForm";
 
 const Header = styled.h1`
   background-color: var(--primary);
@@ -13,13 +14,21 @@ const Header = styled.h1`
 
 const CustomerManagementWrapper = styled.div`
   display: flex;
-  max-height: 600px;
+  flex-wrap: wrap;
   padding: var(--space-6);
+  justify-content: space-around;
+  max-width: 1500px;
+  align-self: center;
+  width: 50%;
+  margin: 0 auto;
+  gap: var(--space-6);
 `;
 
 const CustomerListComponentWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  margin-top: var(--space-5);
+  max-height: 400px;
 `;
 
 const CustomerListHeaderWrapper = styled.div`
@@ -61,6 +70,7 @@ function App() {
     <div>
       <Header>Kunden Management</Header>
       <CustomerManagementWrapper>
+        <CreateCustomerForm onSuccess={() => fetchData()}></CreateCustomerForm>
         <CustomerListComponentWrapper>
           <CustomerListHeaderWrapper>
             <h2>Kunden Informationen</h2>
