@@ -3,6 +3,13 @@ import styled from "@emotion/styled";
 import List from "@mui/material/List";
 import { CustomerType } from "../hooks/UseQueryCustomerList";
 
+const CustomerListWrapper = styled(List)`
+  width: 100%;
+  max-width: 600px;
+  overflow: auto;
+  border: solid black 1px;
+`;
+
 const CustomerWrapper = styled.div`
   flex: 1;
   padding: var(--space-4);
@@ -29,21 +36,14 @@ const CustomerInfoWrapper = styled.div`
 
 function CustomerList({ customers }: { customers: CustomerType[] }) {
   return (
-    <List
-      sx={{
-        width: "100%",
-        maxWidth: 600,
-        bgcolor: "background.paper",
-        overflow: "auto",
-      }}
-    >
+    <CustomerListWrapper>
       {customers.map((customer) => (
         <div key={customer.taxId}>
           <ListItem>{CustomerListElement({ customer })}</ListItem>
           <Divider variant="fullWidth" component="li" />
         </div>
       ))}
-    </List>
+    </CustomerListWrapper>
   );
 }
 
