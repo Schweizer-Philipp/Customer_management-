@@ -16,7 +16,7 @@ interface UseQueryCustomerListType {
 
 function useQueryCustomerList(): UseQueryCustomerListType {
   const [data, setData] = useState<CustomerType[] | null>(null);
-  const [loading, setLoading] = useState<boolean>(true);
+  const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
@@ -25,16 +25,23 @@ function useQueryCustomerList(): UseQueryCustomerListType {
 
   const fetchCustomerList = async (): Promise<void> => {
     setLoading(true);
-    const response = await fetch("http://localhost:8080/customers");
+    setData(null);
+    setError(null);
 
-    if (response.ok) {
-      let data = await response.json();
-      setData(data);
-    } else {
-      setError(response.statusText);
+    try {
+      const response = await fetch("http://localhost:8080/customers");
+
+      if (response.ok) {
+        let data = await response.json();
+        setData(data);
+      } else {
+        setError(response.statusText);
+      }
+    } catch (error: any) {
+      setError("server error");
+    } finally {
+      setLoading(false);
     }
-
-    setLoading(false);
   };
 
   return { data, loading, error, fetchData: fetchCustomerList };
